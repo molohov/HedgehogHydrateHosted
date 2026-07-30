@@ -1,0 +1,34 @@
+@import "tailwindcss";
+
+@theme {
+  --color-parchment: #f7f0e4;
+  --color-parchment-deep: #ede3d2;
+  --color-moss: #5b8a72;
+  --color-moss-dark: #3d6b55;
+  --color-warm-peach: #f4b08a;
+  --color-dusty-rose: #e8a0a0;
+  --color-hedgehog-brown: #8b5e3c;
+  --color-soft-cream: #fff8ef;
+  --color-water: #7ec8e3;
+  --color-water-deep: #4da3c4;
+  --color-leaf: #9bc995;
+  --color-woodland: #3e3228;
+  --color-woodland-muted: #6b5e52;
+  --font-sans: "Nunito", ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  html {
+    @apply bg-parchment text-woodland;
+  }
+
+  body {
+    @apply min-h-screen font-sans antialiased;
+  }
+
+  button,
+  input,
+  select {
+    @apply outline-none;
+  }
+}

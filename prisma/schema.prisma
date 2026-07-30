@@ -1,0 +1,53 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  ADMIN
+  USER
+}
+
+model User {
+  id              String        @id @default(cuid())
+  username        String        @unique
+  passwordHash    String
+  role            Role          @default(USER)
+  isActive        Boolean       @default(true)
+  dailyGoalOz     Int           @default(64)
+  timezone        String        @default("America/Los_Angeles")
+  backgroundColor String        @default("#F7F0E4")
+  avatarData      Bytes?
+  avatarMime      String?
+  backgroundData  Bytes?
+  backgroundMime  String?
+  createdAt       DateTime      @default(now())
+  updatedAt       DateTime      @updatedAt
+  presets         WaterPreset[]
+  entries         WaterEntry[]
+}
+
+model WaterPreset {
+  id      String  @id @default(cuid())
+  userId  String
+  label   String
+  oz      Int
+  builtin Boolean @default(false)
+  user    User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+}
+
+model WaterEntry {
+  id       String   @id @default(cuid())
+  userId   String
+  oz       Int
+  loggedAt DateTime @default(now())
+  user     User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId, loggedAt])
+}
