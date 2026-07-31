@@ -1,9 +1,10 @@
 /* Hedgehog Hydrate — minimal service worker for installability.
  * Network-first / pass-through so authenticated pages and APIs stay fresh.
  */
-const CACHE_NAME = "hedgehog-hydrate-static-v1";
+const CACHE_NAME = "hedgehog-hydrate-static-v2";
 const PRECACHE_URLS = [
   "/favicon.svg",
+  "/icons/hedgehog.svg",
   "/icons/icon-192.png",
   "/icons/icon-512.png",
   "/icons/icon-maskable-512.png",

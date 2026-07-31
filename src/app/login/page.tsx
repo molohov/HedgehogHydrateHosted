@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { LoginForm } from "@/components/auth/LoginForm";
 
 export default function LoginPage() {
@@ -5,7 +6,14 @@ export default function LoginPage() {
     <div className="flex min-h-screen items-center justify-center bg-parchment px-4">
       <div className="w-full max-w-md rounded-3xl bg-soft-cream/95 p-8 shadow-lg">
         <div className="mb-6 text-center">
-          <div className="text-5xl">🦔</div>
+          <Image
+            src="/icons/hedgehog.svg"
+            alt=""
+            width={56}
+            height={56}
+            className="mx-auto"
+            priority
+          />
           <h1 className="mt-3 text-3xl font-bold text-moss">Hedgehog Hydrate</h1>
           <p className="mt-2 text-sm text-woodland-muted">
             Sign in with your admin-provided account.

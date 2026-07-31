@@ -91,7 +91,12 @@ export function SettingsPanel({
           </div>
           <div className="flex flex-col gap-2">
             <form action={avatarAction}>
-              <input type="file" name="avatar" accept="image/*" className="text-sm" />
+              <input
+                type="file"
+                name="avatar"
+                accept="image/*"
+                className="text-sm file:rounded-full file:border file:border-moss/20 file:px-4 file:py-2"
+              />
               <button
                 type="submit"
                 disabled={avatarPending}
@@ -156,7 +161,7 @@ export function SettingsPanel({
               type="file"
               name="background"
               accept="image/*"
-              className="mt-2 block text-sm"
+              className="mt-2 block text-sm file:rounded-full file:border file:border-moss/20 file:px-4 file:py-2"
             />
             <button
               type="submit"

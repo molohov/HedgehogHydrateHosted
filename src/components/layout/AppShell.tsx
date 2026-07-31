@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { Role } from "@prisma/client";
 import { logoutAction } from "@/app/actions/auth";
@@ -34,9 +35,12 @@ export function AppShell({ user, children }: AppShellProps) {
                     className="h-full w-full object-cover"
                   />
                 ) : (
-                  <div className="flex h-full w-full items-center justify-center text-xl">
-                    🦔
-                  </div>
+                  <Image
+                    src="/icons/hedgehog.svg"
+                    alt="Hedgehog avatar"
+                    fill
+                    className="object-contain p-1"
+                  />
                 )}
               </div>
               <div>
@@ -45,6 +49,12 @@ export function AppShell({ user, children }: AppShellProps) {
               </div>
             </div>
             <nav className="flex items-center gap-2 text-sm">
+              <Link
+                href="/"
+                className="rounded-full bg-moss/10 px-3 py-1.5 font-medium text-moss-dark hover:bg-moss/20"
+              >
+                Home
+              </Link>
               <Link
                 href="/settings"
                 className="rounded-full bg-moss/10 px-3 py-1.5 font-medium text-moss-dark hover:bg-moss/20"
