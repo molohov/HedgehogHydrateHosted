@@ -4,6 +4,7 @@ import { revalidatePath } from "next/cache";
 import { requireSessionUser } from "@/auth";
 import { prisma } from "@/lib/db";
 import {
+  BUILTIN_PRESETS,
   encouragementForLog,
   formatEntryTime,
   getLocalDateKey,
@@ -31,8 +32,30 @@ export type HydrationDashboardData = {
   encouragement: { message: string; mood: string } | null;
 };
 
+async function ensureBuiltinPresets(userId: string) {
+  const existing = await prisma.waterPreset.findMany({
+    where: { userId, builtin: true },
+    select: { oz: true },
+  });
+  const existingOz = new Set(existing.map((preset) => preset.oz));
+  const missing = BUILTIN_PRESETS.filter((preset) => !existingOz.has(preset.oz));
+  if (missing.length === 0) {
+    return;
+  }
+
+  await prisma.waterPreset.createMany({
+    data: missing.map((preset) => ({
+      userId,
+      label: preset.label,
+      oz: preset.oz,
+      builtin: true,
+    })),
+  });
+}
+
 export async function getHydrationDashboard(): Promise<HydrationDashboardData> {
   const user = await requireSessionUser();
+  await ensureBuiltinPresets(user.id);
 
   const [dbUser, entries] = await Promise.all([
     prisma.user.findUniqueOrThrow({

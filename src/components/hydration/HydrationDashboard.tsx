@@ -13,9 +13,10 @@ import type { HydrationDashboardData } from "@/app/actions/hydration";
 
 const PRESET_TINTS = [
   "bg-warm-peach",
+  "bg-dusty-rose",
   "bg-leaf",
-  "bg-dusty-rose/40",
-  "bg-warm-peach/80",
+  "bg-water/70",
+  "bg-parchment-deep",
 ];
 
 type HydrationDashboardProps = HydrationDashboardData & {

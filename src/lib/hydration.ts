@@ -1,5 +1,6 @@
 export const BUILTIN_PRESETS = [
   { label: "3 oz", oz: 3 },
+  { label: "5 oz", oz: 5 },
   { label: "8 oz", oz: 8 },
   { label: "10 oz", oz: 10 },
   { label: "12 oz", oz: 12 },
