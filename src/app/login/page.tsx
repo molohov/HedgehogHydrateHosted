@@ -7,11 +7,11 @@ export default function LoginPage() {
       <div className="w-full max-w-md rounded-3xl bg-soft-cream/95 p-8 shadow-lg">
         <div className="mb-6 text-center">
           <Image
-            src="/icons/hedgehog.svg"
+            src="/icons/hedgehog.jpg"
             alt=""
-            width={56}
-            height={56}
-            className="mx-auto"
+            width={72}
+            height={72}
+            className="mx-auto rounded-2xl"
             priority
           />
           <h1 className="mt-3 text-3xl font-bold text-moss">Hedgehog Hydrate</h1>

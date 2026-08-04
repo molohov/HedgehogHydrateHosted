@@ -1,13 +1,15 @@
 /* Hedgehog Hydrate — minimal service worker for installability.
  * Network-first / pass-through so authenticated pages and APIs stay fresh.
  */
-const CACHE_NAME = "hedgehog-hydrate-static-v2";
+const CACHE_NAME = "hedgehog-hydrate-static-v3";
 const PRECACHE_URLS = [
-  "/favicon.svg",
-  "/icons/hedgehog.svg",
+  "/favicon.png",
+  "/icons/hedgehog.jpg",
+  "/icons/favicon-48.png",
   "/icons/icon-192.png",
   "/icons/icon-512.png",
   "/icons/icon-maskable-512.png",
+  "/icons/apple-touch-icon.png",
 ];
 
 self.addEventListener("install", (event) => {
@@ -60,7 +62,7 @@ self.addEventListener("fetch", (event) => {
   // Cache-first for static icons and the favicon only.
   if (
     url.pathname.startsWith("/icons/") ||
-    url.pathname === "/favicon.svg" ||
+    url.pathname === "/favicon.png" ||
     url.pathname.startsWith("/_next/static/")
   ) {
     event.respondWith(

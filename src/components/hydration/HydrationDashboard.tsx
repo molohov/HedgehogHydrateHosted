@@ -72,7 +72,7 @@ export function HydrationDashboard({
               className="object-cover"
             />
           ) : (
-            <HedgehogMascot mood={mood} className="h-full w-full p-2" />
+            <HedgehogMascot mood={mood} className="h-full w-full" />
           )}
         </div>
         <WaterProgressRing

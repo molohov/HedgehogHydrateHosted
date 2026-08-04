@@ -86,7 +86,7 @@ export function SettingsPanel({
                 className="object-cover"
               />
             ) : (
-              <HedgehogMascot className="h-full w-full p-2" />
+              <HedgehogMascot className="h-full w-full" />
             )}
           </div>
           <div className="flex flex-col gap-2">

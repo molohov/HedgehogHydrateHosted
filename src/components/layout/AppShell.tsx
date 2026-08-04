@@ -36,10 +36,10 @@ export function AppShell({ user, children }: AppShellProps) {
                   />
                 ) : (
                   <Image
-                    src="/icons/hedgehog.svg"
+                    src="/icons/hedgehog.jpg"
                     alt="Hedgehog avatar"
                     fill
-                    className="object-contain p-1"
+                    className="object-cover"
                   />
                 )}
               </div>

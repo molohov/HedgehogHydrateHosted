@@ -1,3 +1,5 @@
+![Hedgehog Hydrate](hedgehog_hydrate.jpg)
+
 # Hedgehog Hydrate (Hosted)
 
 A hedgehog-themed water intake tracker built with Next.js, PostgreSQL, and Docker. This hosted version mirrors the Android app experience while adding per-user accounts, external database persistence, and container deployment.

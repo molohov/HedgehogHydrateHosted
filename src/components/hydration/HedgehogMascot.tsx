@@ -13,10 +13,10 @@ export function HedgehogMascot({
   return (
     <div className={`relative ${className}`}>
       <Image
-        src="/icons/hedgehog.svg"
+        src="/icons/hedgehog.jpg"
         alt="Hedgehog mascot"
         fill
-        className="object-contain"
+        className="object-cover"
       />
       {mood === "goalReached" ? (
         <span className="absolute right-0 top-0 text-sm" aria-hidden="true">
