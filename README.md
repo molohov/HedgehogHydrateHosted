@@ -60,6 +60,19 @@ Open [http://localhost:3000](http://localhost:3000) and sign in with the admin c
 - Passwords are hashed at creation and **cannot be changed or recovered** inside the app.
 - Share credentials securely when onboarding users.
 
+### Sessions
+
+Signing in is a one-time step. The session cookie is **sliding**: every page request
+more than a day old re-issues the token with a fresh one-year expiry, so a user who
+keeps opening the app is never asked to sign in again. The one-year max age is an
+inactivity window, not a cap on the session.
+
+Sessions stay revocable because every request resolves the user from the database:
+
+- Deactivating an account from `/admin/users` locks it out on the next request.
+- **Sign out** clears the cookie.
+- Rotating `SESSION_SECRET` invalidates every outstanding session at once.
+
 ## Docker deployment
 
 Build and run the full stack:
